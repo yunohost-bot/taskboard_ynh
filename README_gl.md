@@ -27,9 +27,10 @@ The goal of TaskBoard is to provide a simple and clean interface to a functional
 
 ![Captura de pantalla de TaskBoard](./doc/screenshots/screenshots.png)
 
-## :red_circle: Caraterísticas cuestionables
+## :red_circle: Debes considerar
 
-- **Package not maintained**: This YunoHost package is not maintained and needs adoption.
+- **Upstream not maintained**: This software is not maintained anymore. Expect it to break down over time, be exposed to unfixed security breaches, etc.
+- **Package not maintained**: This YunoHost package is not actively maintained and needs adoption. This means that minimal maintenance is made by volunteers who don't use the app, so you should expect the app to lose reliability over time. You can [learn how to package](https://yunohost.org/packaging_apps_intro) if you'd like to adopt it.
 
 ## Documentación e recursos
 

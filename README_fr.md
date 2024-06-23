@@ -29,7 +29,8 @@ The goal of TaskBoard is to provide a simple and clean interface to a functional
 
 ## :red_circle: Anti-fonctionnalités
 
-- **Paquet non maintenu**: Ce package YunoHost n'est plus maintenu et doit être adopté.
+- **Application non maintenue **: Ce logiciel n'est plus maintenu. Attendez-vous à ce qu'il ne fonctionne plus avec le temps, et que l'on découvre des failles de sécurité qui ne seront pas corrigées, etc.
+- **Package non maintenu **: Ce package YunoHost n'est pas activement maintenu et a besoin d'être adopté. Cela veut dire que la maintenance minimale est réalisée par des bénévoles qui n'utilisent pas l'application, il faut donc s'attendre à ce que l'app perde en fiabilité avec le temps. Vous pouvez [apprendre comment packager](https://yunohost.org/packaging_apps_intro) si vous voulez l'adopter.
 
 ## Documentations et ressources
 
