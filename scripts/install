@@ -1,34 +1,16 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
-#=================================================
-# RETRIEVE ARGUMENTS FROM THE MANIFEST
-#=================================================
+ynh_app_setting_set --key=php_upload_max_filesize --value=100M
 
-fpm_footprint="low"
-fpm_free_footprint=0
-fpm_usage="low"
-
-#=================================================
-# STORE SETTINGS FROM MANIFEST
-#=================================================
-
-ynh_app_setting_set --app=$app --key=fpm_footprint --value=$fpm_footprint
-ynh_app_setting_set --app=$app --key=fpm_free_footprint --value=$fpm_free_footprint
-ynh_app_setting_set --app=$app --key=fpm_usage --value=$fpm_usage
+ynh_app_setting_set --key=php_memory_limit --value=256M
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=1
+ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
@@ -41,26 +23,19 @@ chown -R $app:www-data "$install_dir"
 #=================================================
 # PHP-FPM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring PHP-FPM..." --weight=4
+ynh_script_progression "Configuring PHP-FPM..."
 
-# Create a dedicated PHP-FPM config
-ynh_add_fpm_config --usage=$fpm_usage --footprint=$fpm_footprint
+ynh_config_add_phpfpm
 
-#=================================================
-# NGINX CONFIGURATION
-#=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=10
-
-# Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=2
+ynh_script_progression "Adding $app's configuration..."
 
 dir="__DIR__"
-ynh_add_config --template="../conf/Mailer.php" --destination="$install_dir/api/helpers/Mailer.php"
+ynh_config_add --template="Mailer.php" --destination="$install_dir/api/helpers/Mailer.php"
 
 chmod 400 "$install_dir/api/helpers/Mailer.php"
 chown $app:$app "$install_dir/api/helpers/Mailer.php"
@@ -69,4 +44,4 @@ chown $app:$app "$install_dir/api/helpers/Mailer.php"
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of TaskBoard completed" --last
+ynh_script_progression "Installation of TaskBoard completed"

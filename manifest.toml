@@ -5,9 +5,9 @@ name = "TaskBoard"
 description.en = "Kanban for keeping track of things that need to get done"
 description.fr = "Kanban pour garder une trace des choses à faire"
 
-version = "1.0.2~ynh3"
+version = "1.0.2~ynh4"
 
-maintainers = ["eric_G"]
+maintainers = []
 
 [upstream]
 license = "MIT"
@@ -16,7 +16,8 @@ demo = "https://taskboard.matthewross.me/demo"
 code = "https://github.com/kiswa/TaskBoard"
 
 [integration]
-yunohost = ">= 11.2"
+yunohost = ">= 11.2.16"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 ldap = false
