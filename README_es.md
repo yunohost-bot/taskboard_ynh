@@ -19,7 +19,7 @@ No se debe editar a mano.
 A Kanban-inspired app for keeping track of things that need to get done.
 The goal of TaskBoard is to provide a simple and clean interface to a functional and minimal application for keeping track of tasks. It's not trying to be the next Trello or LeanKit.
 
-**Versión actual:** 1.0.2~ynh3
+**Versión actual:** 1.0.2~ynh4
 
 **Demo:** <https://taskboard.matthewross.me/demo>
 
